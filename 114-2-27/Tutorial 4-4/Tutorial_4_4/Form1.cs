@@ -47,5 +47,28 @@ namespace Tutorial_4_4
         {
             this.Close();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LbxLog.Items.Clear();
+            LbxLog.Items.Add("平均油耗紀錄:");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double sum = 0;
+            if (LbxLog.Items.Count > 1)
+            {
+                for (int i = 1; i < LbxLog.Items.Count; i++)
+                {
+                    sum += double.Parse(LbxLog.Items[i].ToString().Replace("公里/公升", ""));//累加平均油耗
+                }
+                LbxLog.Items.Add("平均油耗:" + (sum / (LbxLog.Items.Count - 1)).ToString("f2") + "公里/公升");
+            }
+            else
+            {
+                MessageBox.Show("沒有紀錄");
+            }
+        }
     }
 }
