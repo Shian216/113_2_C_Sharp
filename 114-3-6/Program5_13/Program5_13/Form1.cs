@@ -27,20 +27,28 @@ namespace Program5_13
 
             try
             {
-                outputFile = File.CreateText("numbers.txt"); //開啟檔案，寫入數字
-                if (int.TryParse(textBox1.Text, out count)) //判斷是否為數字
+                if(saveFile.ShowDialog() == DialogResult.OK)
                 {
-                    for (int i = 0; i < count; i++)
+                    outputFile = File.CreateText("numbers.txt"); //開啟檔案，寫入數字
+                    if (int.TryParse(textBox1.Text, out count)) //判斷是否為數字
                     {
-                        outputFile.WriteLine(rand.Next(100) + 1); //產生亂數
+                        for (int i = 0; i < count; i++)
+                        {
+                            outputFile.WriteLine(rand.Next(100) + 1); //產生亂數
+                        }
+                        outputFile.Close(); //關閉檔案
+                        MessageBox.Show("檔案已建立"); //顯示訊息
                     }
-                    outputFile.Close(); //關閉檔案
-                    MessageBox.Show("檔案已建立"); //顯示訊息
+                    else
+                    {
+                        MessageBox.Show("請輸入數字"); //顯示訊息
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("請輸入數字"); //顯示訊息
+                    MessageBox.Show("你按下取消"); //顯示訊息
                 }
+
             }
             catch (Exception ex)
             {
