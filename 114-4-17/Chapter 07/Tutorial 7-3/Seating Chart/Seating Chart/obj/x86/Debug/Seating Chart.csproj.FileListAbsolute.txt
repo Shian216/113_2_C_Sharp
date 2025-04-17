@@ -24,6 +24,9 @@ D:\Documents\Books\C#\4th Edition\Completed Tutorials\Chapter 07\Tutorial 7-3\Se
 D:\Documents\Books\C#\4th Edition\Completed Tutorials\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating_Chart.Form1.resources
 D:\Documents\Books\C#\4th Edition\Completed Tutorials\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating_Chart.Properties.Resources.resources
 D:\Documents\Books\C#\4th Edition\Completed Tutorials\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating Chart.csproj.GenerateResource.Cache
+C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\bin\Debug\Seating Chart.exe.config
+C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\bin\Debug\Seating Chart.exe
+C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\bin\Debug\Seating Chart.pdb
 C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating Chart.csproj.AssemblyReference.cache
 C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating_Chart.Form1.resources
 C:\Users\w401\Desktop\113_2_C_Sharp\114-4-17\Chapter 07\Tutorial 7-3\Seating Chart\Seating Chart\obj\x86\Debug\Seating_Chart.Properties.Resources.resources

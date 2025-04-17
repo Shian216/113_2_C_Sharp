@@ -1,63 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Seating_Chart
 {
     public partial class Form1 : Form
     {
-        // 定義 seatTextBox
+        // ✅ 只新增 seatTextBox，rowTextBox 和 colTextBox 已在 Designer.cs 裡面了
         private TextBox seatTextBox;
 
         public Form1()
         {
             InitializeComponent();
 
-            // 初始化 seatTextBox
+            // ✅ 動態建立 seatTextBox
             seatTextBox = new TextBox
             {
-                Location = new System.Drawing.Point(20, 20), // 設定位置
-                Size = new System.Drawing.Size(100, 20),    // 設定大小
-                Name = "seatTextBox"                       // 設定名稱
+                Location = new Point(20, 20),
+                Size = new Size(200, 30),
+                Name = "seatTextBox"
             };
-
-            // 將 TextBox 加入到表單中
             this.Controls.Add(seatTextBox);
         }
 
         private void displayPriceButton_Click(object sender, EventArgs e)
         {
-            // 假設座位與價格的對應關係
-            Dictionary<string, decimal> seatPrices = new Dictionary<string, decimal>
-            {
-                { "A1", 50.0m },
-                { "A2", 50.0m },
-                { "B1", 40.0m },
-                { "B2", 40.0m },
-                { "C1", 30.0m },
-                { "C2", 30.0m }
-            };
+            string seatArea = seatTextBox.Text.Trim().ToLower();
+            string row = rowTextBox.Text.Trim(); // ✅ 來自 Designer.cs，這裡不要宣告
+            string col = colTextBox.Text.Trim(); // ✅ 來自 Designer.cs，這裡不要宣告
+            string message;
 
-            // 確保 seatTextBox 有輸入值
-            string selectedSeat = seatTextBox.Text.Trim();
+            if (!int.TryParse(row, out int rowNumber) || rowNumber < 0 || rowNumber > 5)
+            {
+                MessageBox.Show("請輸入有效的行數 (0 到 5).", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            if (!string.IsNullOrEmpty(selectedSeat))
+            if (!int.TryParse(col, out int colNumber) || colNumber < 0 || colNumber > 3)
             {
-                // 檢查輸入的座位是否在價格表中
-                if (seatPrices.TryGetValue(selectedSeat, out decimal price))
-                {
-                    // 顯示價格
-                    MessageBox.Show($"座位 {selectedSeat} 的價格是 {price:C}", "價格資訊");
-                }
-                else
-                {
-                    MessageBox.Show("輸入的座位無效。", "錯誤");
-                }
+                MessageBox.Show("請輸入有效的列數 (0 到 3).", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            switch (seatArea)
             {
-                MessageBox.Show("請輸入一個座位編號。", "提示");
+                case "vip":
+                    message = $"VIP 區域的票價為 $150. 行數: {rowNumber}, 列數: {colNumber}";
+                    break;
+                case "regular":
+                    message = $"普通區域的票價為 $75. 行數: {rowNumber}, 列數: {colNumber}";
+                    break;
+                case "economy":
+                    message = $"經濟區域的票價為 $50. 行數: {rowNumber}, 列數: {colNumber}";
+                    break;
+                default:
+                    message = "請輸入有效的座位區域 (VIP, Regular, Economy).";
+                    break;
             }
+
+            MessageBox.Show(message, "票價資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
